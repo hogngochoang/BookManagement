@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book</title>
+    <link rel="stylesheet" href="./book.css">
+    <script src="https://kit.fontawesome.com/cdf1deaf66.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="./book.js"></script>
+    <nav>
+        <div class="menu">
+            <div class="logo-container">
+                <img src="./imgs/Logo.png">
+            </div>
+            <a id="tk-url" href="./main.html">Thống kê</a>
+            <a id="book-url" href="/book.html">Quản lý sách</a>
+            <a href="./bill.html">Hóa đơn</a>
+            <a href="./customer.html">Quản lý KH</a>
+            <a href="./staff.html">Quản lý NV</a>
+            <a href="./warehouse.html">Kho</a>
+            <a href="#link">CSKH</a>
+            <a href="#link">Hỗ trợ</a>
+            <a href="#link">Cài đặt</a>
+            
+                <i id="thongke" class="fa-solid fa-house"></i>
+                <i id="qlsach" class="fa-solid fa-cart-shopping"></i>
+                <i id="qlkh" class="fa-solid fa-users"></i>
+                <i id="kho" class="fa-solid fa-warehouse"></i>
+                <i id="qlnv" class="fa-solid fa-clipboard-user"></i>
+                <i id="bill" class="fa-solid fa-file-invoice-dollar"></i>
+                <i id="cskh" class="fa-solid fa-comments"></i>
+                <i id="sp" class="fa-regular fa-life-ring"></i>
+                <i id="settings" class="fa-solid fa-gear"></i>
+            
+            <style>
+            
+                #thongke{
+                    color: white;
+                    position: absolute;
+                    margin: 78px 132.94px 0 40.78px;
+                }
+                #qlsach{
+                    color: #267693;
+                    position: absolute;
+                    margin: 146px 132.94px 0 40.78px;
+                }
+                #qlkh{
+                    color: white;
+                    position: absolute;
+                    margin: 210px 132.94px 0 40.78px;
+                }
+                #kho{
+                    color: white;
+                    position: absolute;
+                    margin: 277px 132.94px 0 40.78px;
+                }
+                #qlnv{
+                    color: white;
+                    position: absolute;
+                    margin: 345px 132.94px 0 40.78px;
+                }
+                #bill{
+                    color: white;
+                    position: absolute;
+                    margin: 411px 132.94px 0 40.78px;
+                }
+                #cskh{
+                    color: white;
+                    position: absolute;
+                    margin: 477px 132.94px 0 40.78px;
+                }
+                #sp{
+                    color: white;
+                    position: absolute;
+                    margin: 546px 132.94px 0 40.78px;
+                }
+                #settings{
+                    color: white;
+                    position: absolute;
+                    margin: 612px 132.94px 0 40.78px;
+                }
+                #notice{
+                    position: absolute;
+                    margin: 15px 218px 12px 975px;
+                }
+                #avatar{
+                    position: absolute;
+                    margin:13.29px 24.25px 9.71px 1100px ;
+                }
+                .add-books-wrapper {
+                    position: absolute;
+                    margin-top: 0;
+                    top: 0px;
+                    left: 0px;
+                    width: 1535px;
+                    height: 760px;
+                    background: rgba(0,0,0,.3);
+                    z-index: 500;
+                    visibility: hidden;
+                }
+                .add-books {
+                    position: relative;
+                    margin-top: 0px;
+                    top: 145px;
+                    margin-left: 0px;
+                    left: 171px;
+                    z-index: 1000;
+                }
+            </style>
+            <div class="buttons">
+                <button class="minify-btn"><span>THU NHỎ</span></button>
+                <a id="link" href="./login.html">
+                    <span>THOÁT</span>
+                </a> 
+            </div>
+        </div> 
+        <div class="header">
+            <div class="search-zone">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <img id="notice" src="./imgs/Group 17.png" >
+            <img id="avatar" src="./imgs/Group 20.png" >
+            <div class="title">
+                <h1>Danh sách sách</h1>
+                <button style="
+                text-decoration: none;
+                width: 120px;
+                height: 35.12px;
+                border: none;
+                font-size: 15px; 
+                background-color: #267693; 
+                font-family: 'Montserrat', sans-serif; 
+                font-weight: 600;
+                border-radius: 3px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                color: white;
+                margin:10px 0px 0 900px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                " onclick="onOpenHandle()">+ Thêm sách</button>
+            </div>
+        <div class="list-books">
+            <div class="list-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm sách">
+                <button class="search-btn"><span>TÌM KIẾM</span></button>
+            </div>
+            <div class="lines">
+                <div class="line1"></div>
+            </div>
+            
+            <div class="list-header">
+                <ul>
+                    <li>Mã sách</li>
+                    <li>Tên sách</li>
+                    <li>Tên tác giả</li>
+                    <li>Giá</li>
+                    <li>Năm xuất bản</li>
+                    <li>Số lượng</li>
+                    <li>Mã loại sách</li>
+                </ul>
+            </div>
+            <div class="list-items">
+                <div class="book1">
+                    <img src="./imgs/books/image-bookjpg-1 1.png" alt="" style="margin:40px 0 0 70px ;">
+                    <ul>
+                        <li>MS1</li>
+                        <li style="margin-left:75px" >Đắc nhân tâm</li>
+                        <li style="margin-left:45px">Dale Carnegie</li>
+                        <li style="margin-left:46px">100.000</li>
+                        <li style="margin-left:85px">1936</li>
+                        <li style="margin-left:140px">20</li>
+                        <li style="margin-left:130px">LS1</li>  
+                    </ul>
+                    <div class="buttons">
+                        <button class="info-btn">Sửa</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>    
+                </div>
+                <div class="book2">
+                    <img src="./imgs/books/nha_gia_kim__paulo_coelho (1) 1.png" alt="" style="margin:40px 0 0 70px ;">
+                    <ul>
+                        <li>MS2</li>
+                        <li style="margin-left:78px" >Nhà giả kim</li>
+                        <li style="margin-left:58px">Paolo Coelho</li>
+                        <li style="margin-left:53px">100.000</li>
+                        <li style="margin-left:83px">1988</li>
+                        <li style="margin-left:140px">10</li>
+                        <li style="margin-left:130px">LS1</li>  
+                    </ul>
+                    <div class="buttons" style="margin: 300px 0px 0 1125px;">
+                        <button class="info-btn">Sửa</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+                <div class="book3">
+                    <img src="./imgs/books/su_im_lang_cua_bay_cuu__thomas_harris (1) 1.png" alt="" style="margin:40px 0 0 70px ;">
+                    <ul>
+                        <li>MS3</li>
+                        <li style="margin-left:70px; width: 120px;line-height: 20px;" >Sự im lặng của bầy cừu</li>
+                        <li style="margin-left:35px;width: 120px;">Thomas Harris</li>
+                        <li style="margin-left:35px">70.000</li>
+                        <li style="margin-left:90px">1988</li>
+                        <li style="margin-left:140px">10</li>
+                        <li style="margin-left:130px">LS1</li>  
+                    </ul>
+                    <div class="buttons" style="margin: 411px 0px 0 1125px;">
+                        <button class="info-btn">Sửa</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+            </div>
+            <div class="list-footer">
+                <p style="font-family: 'Monsterrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 10px;
+                color: #808080;
+                width: 119px;
+                height: 10px;
+                padding-top: 60px;
+                margin: 0px 0px 0px 75px">Hiển thị kết quả</p>
+                <img src="./imgs/Group 54589.png" style="margin:60px 475px 24px 439px;">
+            </div>
+        </div>
+
+        <div class="add-books-wrapper" ">
+            <div class="add-books">
+                <h1>Thêm sách</h1>
+                <div class="list-header">
+                    <ul>
+                        <li>Mã sách</li>
+                        <li>Tên sách</li>
+                        <li>Tên tác giả</li>
+                        <li>Giá</li>
+                        <li>Năm xuất bản</li>
+                        <li>Số lượng</li>
+                        <li>Mã loại sách</li>
+                    </ul>
+                </div>
+    
+                <div class="add-item">
+                    <div class="book1">
+                        <img src="./imgs/books/Bắt_trẻ_đồng_xanh(sách) 1.png" alt="" style="margin:40px 0 0 70px ;">
+                        <ul>
+                            <li>MS4</li>
+                            <li style="margin-left:75px" >Bắt trẻ đồng xanh</li>
+                            <li style="margin-left:45px">J.D.Salinger</li>
+                            <li style="margin-left:46px">70.000</li>
+                            <li style="margin-left:85px">1951</li>
+                            <li style="margin-left:140px">30</li>
+                            <li style="margin-left:130px">LS1</li>  
+                        </ul>
+                        <div class="buttons" style="margin-top:170px ;">
+                            <button class="delete-btn" style="margin:10px 0px 0 27px ;">Xóa</button>
+                        </div>    
+                    </div>
+                </div>
+                <div class="buttons" style="margin: 170px 420px 0px 520px; display: flex; flex-direction: row; justify-content: space-around;width: 270px;">
+                    <button class="save-btn">Lưu</button>
+                    <button class="cancel-btn">Hủy bỏ</button>
+                </div>  
+            </div>
+        </div>
+        <script>
+            function onAddHandle(){
+                onOpenHandle();
+                document.querySelector(".add-books h1").innerHTML = "Thêm khách hàng";
+                document.querySelector(".add-books .update-btn").innerHTML = "Thêm";
+                document.querySelector(".add-books .update-btn").className = "save-btn";
+            }
+
+            function onCloseHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "hidden";
+            }
+
+            function onOpenHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "visible";
+            }
+            document.querySelector('.add-books-wrapper').addEventListener('click', e => {
+                if (e.target.classList.value === 'add-books-wrapper' || e.target.classList.value === 'cancel-btn') {
+                    onCloseHandle();
+                }
+                else {
+                    onOpenHandle();
+                }
+            });
+        </script>x
+</body>
+</html>

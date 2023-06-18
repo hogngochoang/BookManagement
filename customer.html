@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers</title>
+    <link rel="stylesheet" href="./customer.css">
+    <script src="https://kit.fontawesome.com/cdf1deaf66.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+</head>
+<body>
+   
+    <nav>
+        <div class="menu">
+            <div class="logo-container">
+                <img src="./imgs/Logo.png">
+            </div>
+            <a id="tk-url" href="./main.html">Thống kê</a>
+            <a href="/book.html">Quản lý sách</a>
+            <a href="./bill.html">Hóa đơn</a>
+            <a id="kh-url" href="./customer.html">Quản lý KH</a>
+            <a href="./staff.html">Quản lý NV</a>
+            <a href="./warehouse.html">Kho</a>
+            <a href="#link">CSKH</a>
+            <a href="#link">Hỗ trợ</a>
+            <a href="#link">Cài đặt</a>
+            
+                <i id="thongke" class="fa-solid fa-house"></i>
+                <i id="qlsach" class="fa-solid fa-cart-shopping"></i>
+                <i id="qlkh" class="fa-solid fa-users"></i>
+                <i id="kho" class="fa-solid fa-warehouse"></i>
+                <i id="qlnv" class="fa-solid fa-clipboard-user"></i>
+                <i id="bill" class="fa-solid fa-file-invoice-dollar"></i>
+                <i id="cskh" class="fa-solid fa-comments"></i>
+                <i id="sp" class="fa-regular fa-life-ring"></i>
+                <i id="settings" class="fa-solid fa-gear"></i>
+            
+            <style>
+            
+                #thongke{
+                    color: white;
+                    position: absolute;
+                    margin: 78px 132.94px 0 40.78px;
+                }
+                #qlsach{
+                    color: white;
+                    position: absolute;
+                    margin: 146px 132.94px 0 40.78px;
+                }
+                #bill{
+                    color: white;
+                    position: absolute;
+                    margin: 210px 132.94px 0 40.78px;
+                }
+                #qlkh{
+                    color: #267693;
+                    position: absolute;
+                    margin: 277px 132.94px 0 40.78px;
+                }
+                #qlnv{
+                    color: white;
+                    position: absolute;
+                    margin: 345px 132.94px 0 40.78px;
+                }
+                #kho{
+                    color: white;
+                    position: absolute;
+                    margin: 411px 132.94px 0 40.78px;
+                }
+                #cskh{
+                    color: white;
+                    position: absolute;
+                    margin: 477px 132.94px 0 40.78px;
+                }
+                #sp{
+                    color: white;
+                    position: absolute;
+                    margin: 546px 132.94px 0 40.78px;
+                }
+                #settings{
+                    color: white;
+                    position: absolute;
+                    margin: 612px 132.94px 0 40.78px;
+                }
+                #notice{
+                    position: absolute;
+                    margin: 15px 218px 12px 975px;
+                }
+                #avatar{
+                    position: absolute;
+                    margin:13.29px 24.25px 9.71px 1100px ;
+                }
+                .add-books-wrapper {
+                    position: absolute;
+                    margin-top: 0;
+                    top: 0px;
+                    left: 0px;
+                    width: 1535px;
+                    height: 760px;
+                    background: rgba(0,0,0,.3);
+                    z-index: 500;
+                    visibility: hidden;
+                }
+                .add-books {
+                    position: relative;
+                    margin-top:0px;
+                    top: 30px;
+                    height: auto;
+                    padding-bottom: 40px;
+                    left: 400px;
+                    z-index: 1000;
+                }
+            </style>
+            <div class="buttons">
+                <button class="minify-btn"><span>THU NHỎ</span></button>
+                <a id="link" href="./login.html">
+                    <span>THOÁT</span>
+                </a> 
+            </div>
+        </div> 
+        <div class="header">
+            <div class="search-zone">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <img id="notice" src="./imgs/Group 17.png" >
+            <img id="avatar" src="./imgs/Group 20.png" >
+            <div class="title">
+                <h1>Danh sách khách hàng</h1>
+                <button style="
+                text-decoration: none;
+                width: 120px;
+                height: 35.12px;
+                border: none;
+                font-size: 15px; 
+                background-color: #267693; 
+                font-family: 'Montserrat', sans-serif; 
+                font-weight: 600;
+                border-radius: 3px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                color: white;
+                margin:10px 0px 0 900px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                " onclick="onAddHandle()">+ Thêm KH</button>
+            </div>
+        <div class="list-books">
+            <div class="list-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm khách hàng">
+                <button class="search-btn"><span>TÌM KIẾM</span></button>
+            </div>
+            <div class="lines">
+                <div class="line1"></div>
+            </div>
+            
+            <div class="list-header">
+                <ul>
+                    <li style="width: 125px; margin-right: 20px;">Mã khách hàng</li>
+                    <li style="width: 130px; margin-right: 20px;">Tên khách hàng</li>
+                    <li style="width: 100px; margin-left: 35px;">Địa chỉ</li>
+                    <li style="width: 100px; margin-right: 35px;">Số lần mua</li>
+                    <li>Số điện thoại</li>
+                </ul>
+            </div>
+            <div class="list-items" id="customer-list">
+                
+            </div>
+            <div class="list-footer">
+                <p style="font-family: 'Monsterrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 10px;
+                color: #808080;
+                height: 10px;
+                padding-top: 50px;
+                margin: 0px 0px 0px 50px">Hiển thị kết quả</p>
+                <img src="./imgs/Group 54589.png" style="margin:50px 30px 12px 420px;">
+            </div>
+        </div>
+
+        <div class="info-customer">
+            <h1>Thông tin chi tiết</h1>
+            <div class="info">
+                <div class="img"></div>
+                <div class="customer">
+                    <div class="id" style="display: flex; flex-direction: row;">
+                        <p>Mã khách hàng:</p>
+                        <h4>KH1</h4>
+                    </div>
+                    <div class="name" style="display: flex; flex-direction: row;">
+                        <p>Tên khách hàng:</p>
+                        <h4>Hoàng Thị Hồng Ngọc</h4>
+                    </div>
+                    <div class="address" style="display: flex; flex-direction: row;">
+                        <p>Địa chỉ:</p>
+                        <h4>Hà Nội</h4>
+                    </div>
+                    <div class="buy" style="display: flex; flex-direction: row;">
+                        <p>Số lần mua sách:</p>
+                        <h4></h4>
+                    </div>
+                    <div class="phone" style="display: flex; flex-direction: row;">
+                        <p>Số điện thoại:</p>
+                        <h4>0846697610</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="statistic">
+                <ul class="header" >
+                    <li>Thời gian</li>
+                    <li>Số sách mua</li>
+                    <li>Thành tiền</li>
+                </ul>
+                <ul class="HHN" >
+                    <li>17/12/2021</li>
+                    <li style="margin-right:20px ;">1</li>
+                    <li style="margin-right: 10px;">100.000</li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button class="out">Xuất lịch sử mua</button>
+                <button class="save" onclick="updateCustomer('KH1')">Sửa thông tin</button>
+                <button class="del" onclick="deleteCustomer()">Xóa KH</button>
+            </div>
+
+        </div> 
+
+        <div class="add-books-wrapper">
+            <div class="add-books" id="addBooks">
+                <h1>Thêm khách hàng</h1>
+                <div class="id">
+                    <p>Mã khách hàng</p>
+                    <input type="text" id="customerId">
+                </div>
+                <div class="name">
+                    <p>Tên khách hàng</p>
+                    <input type="text" id="customerName">
+                </div>
+                <div class="address">
+                    <p>Địa chỉ</p>
+                    <input type="text" id="customerAddress">
+                </div>
+                <!-- <div class="buy">
+                    <p>Số lần mua sách</p>
+                    <input type="text">
+                </div> -->
+                <div class="phone">
+                    <p>Số điện thoại</p>
+                    <input type="text" id="customerTel">
+                </div>
+                <div class="buttons" style="margin: 50px 420px 0px 380px; display: flex; flex-direction: row; justify-content: space-around;width: 270px;">
+                    <button class="save-btn">Thêm</button>
+                    <button class="cancel-btn">Đóng</button>
+                </div>   
+            </div>
+        </div>
+        
+        <script>
+
+            function onAddHandle(){
+                onOpenHandle();
+                document.querySelector(".add-books h1").innerHTML = "Thêm khách hàng";
+                document.querySelector(".add-books .update-btn").innerHTML = "Thêm";
+                document.querySelector(".add-books .update-btn").className = "save-btn";
+                document.getElementById("customerId").value = "";
+                document.getElementById("customerName").value  = "";
+                document.getElementById("customerAddress").value = "";
+                document.getElementById("customerTel").value = "";
+            }
+
+            function onCloseHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "hidden";
+            }
+
+            function onOpenHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "visible";
+            }
+            
+            async function getAllCustomers(){
+                await axios.get("https://63706a300399d1995d7d0a94.mockapi.io/customers").then((response) => {
+                    loadListCustomer(response.data);
+                }).catch((err) => console.error(err));
+            }
+            
+            //Modal
+            document.querySelector('.add-books-wrapper').addEventListener('click', e => {
+                if (e.target.classList.value === 'add-books-wrapper' || e.target.classList.value === 'cancel-btn') {
+                    onCloseHandle();
+                }
+                else if(e.target.classList.value === 'save-btn'){
+                    const name =  document.getElementById("customerName").value  
+                    const address =  document.getElementById("customerAddress").value 
+                    const telephone =  document.getElementById("customerTel").value 
+
+                    const formValue = {
+                        name, 
+                        address,
+                        telephone
+                    }
+                    axios.post("https://63706a300399d1995d7d0a94.mockapi.io/customers", formValue).then((response) => {
+                        location.reload();
+                    }).catch((err) => console.error(err));
+                }
+                else if(e.target.classList.value === 'update-btn'){
+                   
+                    newCustomer = {
+                        id: customer.id,
+                        name: document.getElementById("customerName").value,
+                        address: document.getElementById("customerAddress").value,
+                        telephone: document.getElementById("customerTel").value,
+                    } 
+
+                    axios.put(`https://63706a300399d1995d7d0a94.mockapi.io/customers/${id}`, newCustomer).then((response) => {
+                        location.reload();
+                    }).catch((err) => console.error(err));
+                }
+                else {
+                    onOpenHandle();
+                }
+                // console.log(e.target.classList.value);
+            });
+
+            function loadListCustomer(customers){
+                var customerList = document.getElementById("customer-list"); 
+                customers.forEach((customer, value) => {
+                    var customerString = `<div class='customer-item' onclick='getOneCustomer(this.id)' id='customer-no-${customer.id}'><ul><li class='id'>KH${customer.id}</li><li class='name'>${customer.name}</li><li class='address'>${customer.address}</li><li class='amount'>${Math.floor(Math.random() * 11 + 1)}</li><li class='telephone'>${customer.telephone}</li></ul></div>`;
+                    var customerItem = new DOMParser().parseFromString(customerString, "text/html").documentElement;
+                    customerList.appendChild(customerItem);
+                });
+            } 
+
+            function getOneCustomer(id){
+                nummberId = id.replace(/^[^\d]+/, "");
+                console.log(nummberId);
+                axios.get(`https://63706a300399d1995d7d0a94.mockapi.io/customers/${nummberId}`)
+                .then((res) => {
+                    document.querySelector(".customer .id h4").innerHTML = `KH${res.data.id}`;
+                    document.querySelector(".customer .name h4").innerHTML = res.data.name;
+                    document.querySelector(".customer .address h4").innerHTML = res.data.address;
+                    document.querySelector(".customer .buy h4").innerHTML = Math.floor(Math.random() * 11);
+                    document.querySelector(".customer .phone h4").innerHTML = res.data.telephone;
+                })
+                .catch((err) => console.error(err));
+            }
+            
+            var customer;
+
+            function updateCustomer(){
+                id = document.querySelector(".customer .id h4").innerHTML.replace(/^[^\d]+/, "");
+                name = document.querySelector(".customer .name h4").innerHTML;
+                address = document.querySelector(".customer .address h4").innerHTML;
+                telephone = document.querySelector(".customer .phone h4").innerHTML;
+                document.getElementById("customerId").value = `KH${id}`
+                document.getElementById("customerName").value  = name;
+                document.getElementById("customerAddress").value = address;
+                document.getElementById("customerTel").value = telephone;
+
+                customer = {
+                    id,
+                    name,
+                    address,
+                    telephone,
+                }
+                
+                onOpenHandle()
+                document.querySelector(".add-books h1").innerHTML = "Sửa khách hàng";
+                document.querySelector(".add-books .save-btn").innerHTML = "Sửa";
+                document.querySelector(".add-books .save-btn").className = "update-btn";
+            }
+
+            function deleteCustomer(){
+                id = document.querySelector(".customer .id h4").innerHTML.replace(/^[^\d]+/, "");
+                axios.delete(`https://63706a300399d1995d7d0a94.mockapi.io/customers/${id}`).then((response) => {
+                    location.reload();
+                }).catch((err) => console.error(err));
+            }
+
+           
+            window.onload = getAllCustomers();
+        </script>
+        
+</body>
+</html>

@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    top: 0;
+}
+
+body {
+    width: 100;
+    background-color: #BCD5DE;
+}
+nav{
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    width: 192px;
+    background-color: #267693;
+    height: 100vh;
+    position: relative;
+    z-index: 100;
+}
+.menu .logo-container{
+    margin: 18.28px 52.88px 0 25px;
+    width: 114.12px;
+    height: 22.92px;
+}
+.menu a#bill-url{
+    color:#267693 ;
+    background-color:#EDF4FF ;
+}
+.menu a{
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 13px 14px 13px 46px;
+    margin: 25.8px 23px 0 23px;
+    border-radius: 5px;
+    font-family: 'Montserrat',sans-serif; 
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 10px;
+    letter-spacing: -0.01cm;
+    height: 15px;
+    width: 100px;
+}
+.menu a:hover{
+    color:#267693 ;
+    background-color:#EDF4FF ;
+}
+
+.menu .buttons{
+    width: 170px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 10px;
+    margin-right: 33px;
+    margin-top: 25px;
+}
+.buttons .minify-btn{
+    width: 80px;
+    height: 30px;
+    border: none;
+    font-size: 15px; 
+    color: #267693; 
+    font-family: 'Montserrat', sans-serif; 
+    font-weight: 600;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+.buttons a#link{
+    color: #FC0C0C; 
+    background-color: white;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    padding: 0;
+    margin: 0;
+    width: 80px;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.header .search-zone {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 1343px;
+    height: 58px;
+    font-size: 16px;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+}
+.search-zone i{
+    position: absolute;
+    color: white;
+    top: 20px;
+    left: 50px;
+    bottom: 20px;
+}
+.search-zone input{
+    border: none;
+    background-color: #267693;
+    margin: 11px 750px 11px 28px;
+    width: 512px;
+    height: 36px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding-left: 54px; 
+}
+.search-zone input::placeholder{
+    background-color: #267693;
+    color:white;
+    font-family:'Montserrat',sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    margin-left: 54px; 
+}
+.title{
+    display: flex;
+    flex-direction: row;
+}
+.title h1, .add-books h1{
+    width: 200px;
+    height: 30px;
+    margin: 20px 0 0 27px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    color: #267692;
+}
+.list-books{
+    position: absolute;
+    width: 1270px;
+    height: 610px;
+    background: #FFFFFF;
+    border-radius: 21px;
+    margin: 120px 13px 20px 30px;
+}
+.add-books{
+    position: absolute;
+    width: 1270px;
+    height: 452px;
+    background: #FFFFFF;
+    border-radius: 21px;
+    margin: 750px 13px 20px 30px;
+}
+.list-search{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 1270px;
+    height: 58px;
+    font-size: 16px;
+    background-color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 21px;
+    
+}
+.list-search i{
+    position: absolute;
+    color:#BCD5DE;
+    top: 30px;
+    left: 185px;
+    bottom: 20px;
+}
+.list-search input{
+    border-color: #BCD5DE;
+    background-color: white;
+    margin: 21px 212px 11px 164px;
+    width: 687px;
+height: 28px;
+    font-size: 16px;
+    color: #267693;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    padding-left: 54px; 
+}
+.list-search input::placeholder{
+    background-color: white;
+    color: #BCD5DE;
+    font-family:'Montserrat',sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 14px;
+    margin-left: 54px; 
+}
+.search-btn{
+    background-color:#267693 ;
+    border: none;
+    border-radius:8px ;
+    position: absolute;
+    width: 80px;
+    height: 32px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15px;
+    color: #fff;
+    margin: 21px 148px 0 950px;
+}
+.line1{
+    position: absolute;
+    width: 1250px;
+    height: 1px;
+    margin: 80px 11px 0 9px;
+    background-color:rgba(38, 118, 147, 0.6);
+}
+
+.list-header ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 12px;
+    color: #267693;
+    justify-content: space-between;
+    margin-top: 51px;
+    margin-left: 70px;
+    margin-right: 180px;
+}
+
+.list-items, .add-books{
+    display: flex;
+    flex-direction: column;
+}
+
+.book1::before, .book2::before, .book3::before, .list-footer::before{
+    content: "";
+    position: absolute;
+    width: 1250px;
+    height: 1px;
+    margin: 23px 11px 0 9px;
+    background-color:rgba(38, 118, 147, 0.3);
+}
+.add-item .book1::before{
+    content: "";
+    position: absolute;
+    width: 1250px;
+    height: 1px;
+    margin: 15px 11px 0 9px;
+    background-color:rgba(38, 118, 147, 0.3);
+}
+.add-item .book1::after{
+    content: "";
+    position: absolute;
+    width: 1250px;
+    height: 1px;
+    margin: 85px 11px 0 9px;
+    background-color:rgba(38, 118, 147, 0.3);
+}
+.book1, .book2, .book3, .list-footer {
+    display: flex;
+    flex-direction: row;
+}
+.book1 ul, .book2 ul, .book3 ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 12px;
+    color: #267693;
+    width: 1270px;
+    margin-top: 45px;
+    margin-left: 50px;
+    margin-right: 195px;
+    justify-content: flex-start;
+    align-self: center;
+}
+.book1 .buttons, .book2 .buttons, .book3 .buttons{
+    position: absolute;
+    height: 22px;
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 160px 0px 0 1125px;
+}
+
+
+.book1 .buttons .info-btn, .book2 .info-btn, .book3 .info-btn, .add-books .save-btn{
+    width: 56px;
+    height: 22px;
+    background-color: #267693;
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;
+}
+.add-books .save-btn{
+    width: 80px;
+    height: 30px;
+    font-size: 15px;
+}
+.book1 .delete-btn,.book2 .delete-btn, .book3 .delete-btn, .add-books .cancel-btn{
+    background-color: red;
+    width: 56px;
+    height: 22px;
+    color: white;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 10px;
+    border: none;
+    border-radius: 5px;    
+}
+.add-books .cancel-btn{
+    width: 80px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.add-books h2{
+    position: absolute;
+    width: 163px;
+    height: 17px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    color: #267693;
+    margin:60px 828px 490px 40px; 
+}
+.add-books select{
+    width: 300px;
+    height: 30px;
+    position: absolute;
+    margin: 90px 0 0 40px;
+    color: #267693;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    border-color: #BCD5DE;
+}
+.add-books .add-item select{
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    margin: 180px 0 0 60px;
+    color: #267693;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    border-color: #BCD5DE;
+}
+.add-books .add-item input{
+    width: 250px;
+    height: 30px;
+    position: absolute;
+    margin: 180px 0 0 500px;
+    color: #267693;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    border-color: #BCD5DE;
+    padding-left: 20px; 
+}
+.sum{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin:290px 0px 153px 950px ;
+
+
+}
+.sum-list ul{
+    list-style: none;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 600;
+font-size: 15px;
+line-height: 15px;
+text-align: right;
+color: #267693;
+margin-right: 20px;
+
+}
+.sum-list li, .numbers li{
+    height: 30px;
+}
+.numbers ul{
+    list-style: none;
+    font-family: 'Montserrat';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 12px;
+text-align: left;
+
+color: #267693;
+}
+
+

@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staffs</title>
+    <link rel="stylesheet" href="./staff.css">
+    <script src="https://kit.fontawesome.com/cdf1deaf66.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="./book.js"></script>
+    <nav>
+        <div class="menu">
+            <div class="logo-container">
+                <img src="./imgs/Logo.png">
+            </div>
+            <a id="tk-url" href="./main.html">Thống kê</a>
+            <a href="/book.html">Quản lý sách</a>
+            <a href="./bill.html">Hóa đơn</a>
+            <a href="./customer.html">Quản lý KH</a>
+            <a id="nv-url" href="./staff.html">Quản lý NV</a>
+            <a href="./warehouse.html">Kho</a>
+            <a href="#link">CSKH</a>
+            <a href="#link">Hỗ trợ</a>
+            <a href="#link">Cài đặt</a>
+            
+                <i id="thongke" class="fa-solid fa-house"></i>
+                <i id="qlsach" class="fa-solid fa-cart-shopping"></i>
+                <i id="qlkh" class="fa-solid fa-users"></i>
+                <i id="kho" class="fa-solid fa-warehouse"></i>
+                <i id="qlnv" class="fa-solid fa-clipboard-user"></i>
+                <i id="bill" class="fa-solid fa-file-invoice-dollar"></i>
+                <i id="cskh" class="fa-solid fa-comments"></i>
+                <i id="sp" class="fa-regular fa-life-ring"></i>
+                <i id="settings" class="fa-solid fa-gear"></i>
+            
+            <style>
+            
+                #thongke{
+                    color: white;
+                    position: absolute;
+                    margin: 78px 132.94px 0 40.78px;
+                }
+                #qlsach{
+                    color: white;
+                    position: absolute;
+                    margin: 146px 132.94px 0 40.78px;
+                }
+                #bill{
+                    color: white;
+                    position: absolute;
+                    margin: 210px 132.94px 0 40.78px;
+                }
+                #qlkh{
+                    color: white;
+                    position: absolute;
+                    margin: 277px 132.94px 0 40.78px;
+                }
+                #qlnv{
+                    color: #267693;
+                    position: absolute;
+                    margin: 345px 132.94px 0 40.78px;
+                }
+                #kho{
+                    color: white;
+                    position: absolute;
+                    margin: 411px 132.94px 0 40.78px;
+                }
+                #cskh{
+                    color: white;
+                    position: absolute;
+                    margin: 477px 132.94px 0 40.78px;
+                }
+                #sp{
+                    color: white;
+                    position: absolute;
+                    margin: 546px 132.94px 0 40.78px;
+                }
+                #settings{
+                    color: white;
+                    position: absolute;
+                    margin: 612px 132.94px 0 40.78px;
+                }
+                #notice{
+                    position: absolute;
+                    margin: 15px 218px 12px 975px;
+                }
+                #avatar{
+                    position: absolute;
+                    margin:13.29px 24.25px 9.71px 1100px ;
+                }
+                .add-books-wrapper {
+                    position: absolute;
+                    margin-top: 0;
+                    top: 0px;
+                    left: 0px;
+                    width: 1535px;
+                    height: 760px;
+                    background: rgba(0,0,0,.3);
+                    z-index: 500;
+                    visibility: hidden;
+                }
+                .add-books {
+                    position: relative;
+                    margin-top:0px;
+                    top: 30px;
+                    height: auto;
+                    padding-bottom: 40px;
+                    left: 400px;
+                    z-index: 1000;
+                }
+            </style>
+            <div class="buttons">
+                <button class="minify-btn"><span>THU NHỎ</span></button>
+                <a id="link" href="./login.html">
+                    <span>THOÁT</span>
+                </a> 
+            </div>
+        </div> 
+        <div class="header">
+            <div class="search-zone">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <img id="notice" src="./imgs/Group 17.png" >
+            <img id="avatar" src="./imgs/Group 20.png" >
+            <div class="title">
+                <h1>Danh sách nhân viên</h1>
+                <button style="
+                text-decoration: none;
+                width: 120px;
+                height: 35.12px;
+                border: none;
+                font-size: 15px; 
+                background-color: #267693; 
+                font-family: 'Montserrat', sans-serif; 
+                font-weight: 600;
+                border-radius: 3px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                color: white;
+                margin:10px 0px 0 900px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                " onclick="onOpenHandle()">+ Thêm NV</button>
+            </div>
+        <div class="list-books">
+            <div class="list-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm nhân viên">
+                <button class="search-btn"><span>TÌM KIẾM</span></button>
+            </div>
+            <div class="lines">
+                <div class="line1"></div>
+            </div>
+            
+            <div class="list-header">
+                <ul>
+                    <li>Mã nhân viên</li>
+                    <li style="margin-left:30px;width: 80px;">Họ và tên</li>
+                    <li style="margin-left:40px;width: 60px;">Địa chỉ</li>
+                    <li style="margin-left:5px;">Ngày sinh</li>
+                    <li>Giới tính</li>
+                    <li>Số điện thoại</li>
+                </ul>
+            </div>
+            <div class="list-items">
+                <div class="book1">
+                    <ul>
+                        <li style="margin-left:30px;">NV1</li>
+                        <li style="margin-left:40px;width: 190px;" >Hoàng Thị Hồng Ngọc</li>
+                        <li style="margin-left:0px">Hà Nội</li>
+                        <li style="margin-left:35px">20/10/2002</li>
+                        <li style="margin-left:40px">Nữ</li>
+                        <li style="margin-left:44px">0846697610</li>
+                    </ul>
+                </div>
+                <div class="book2">
+                    <ul>
+                        <li style="margin-left:30px;">NV2</li>
+                        <li style="margin-left:40px;width: 190px;" >Nguyễn Thanh Huyền</li>
+                        <li style="margin-left:-4px">Hà Nội</li>
+                        <li style="margin-left:35px">30/07/2002</li>
+                        <li style="margin-left:40px">Nữ</li>
+                        <li style="margin-left:40px">0388508755</li>
+                    </ul>
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:30px;">NV3</li>
+                        <li style="margin-left:40px; width: 187px;" >Nguyễn Phan Anh</li>
+                        <li style="margin-left:0px;">Hà Nội</li>
+                        <li style="margin-left:37px">17/01/2002</li>
+                        <li style="margin-left:40px">Nam</li>
+                        <li style="margin-left:32px">0567295286</li>
+                    </ul>
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:30px;">NV4</li>
+                        <li style="margin-left:40px; width: 187px;" >Lê Việt Hoàng</li>
+                        <li style="margin-left:-1px;">Hà Nội</li>
+                        <li style="margin-left:35px">01/04/2002</li>
+                        <li style="margin-left:35px">Nam</li>
+                        <li style="margin-left:32px">0567295286</li>
+                    </ul>
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:30px;">NV5</li>
+                        <li style="margin-left:40px; width: 187px;" >Đào Thanh Xuân</li>
+                        <li style="margin-left:0px;">Hà Nội</li>
+                        <li style="margin-left:35px">03/09/2002</li>
+                        <li style="margin-left:35px">Nam</li>
+                        <li style="margin-left:32px">0158565459</li>
+                    </ul>
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:30px;">NV6</li>
+                        <li style="margin-left:40px; width: 187px;" >Trần Hồng Hạnh</li>
+                        <li style="margin-left:0px;">Hà Nội</li>
+                        <li style="margin-left:35px">21/05/2002</li>
+                        <li style="margin-left:44px">Nữ</li>
+                        <li style="margin-left:46px">0567291652</li>
+                    </ul>
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:30px;">NV7</li>
+                        <li style="margin-left:40px; width: 187px;" >Dương Viết Thắng</li>
+                        <li style="margin-left:0px;">Hà Nội</li>
+                        <li style="margin-left:35px">09/08/2002</li>
+                        <li style="margin-left:35px">Nam</li>
+                        <li style="margin-left:33px">0567295286</li>
+                    </ul>
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:30px;">NV8</li>
+                        <li style="margin-left:40px; width: 187px;" >Hà Diệu Anh</li>
+                        <li style="margin-left:0px;">Hà Nội</li>
+                        <li style="margin-left:37px">10/12/2002</li>
+                        <li style="margin-left:44px">Nữ</li>
+                        <li style="margin-left:44px">0904576188</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="list-footer">
+                <p style="font-family: 'Monsterrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 10px;
+                color: #808080;
+                height: 10px;
+                padding-top: 50px;
+                margin: 0px 0px 0px 50px">Hiển thị kết quả</p>
+                <img src="./imgs/Group 54589.png" style="margin:50px 30px 12px 420px;">
+            </div>
+        </div>
+        <div class="info-customer">
+            <h1>Thông tin chi tiết</h1>
+            <div class="info">
+                <div class="img"></div>
+                <div class="customer">
+                    <div class="id" style="display: flex; flex-direction: row;">
+                        <p>Mã nhân viên:</p>
+                        <h4>NV1</h4>
+                    </div>
+                    <div class="name" style="display: flex; flex-direction: row;">
+                        <p>Họ và tên:</p>
+                        <h4>Hoàng Thị Hồng Ngọc</h4>
+                    </div>
+                    <div class="address" style="display: flex; flex-direction: row;">
+                        <p>Địa chỉ:</p>
+                        <h4>Hà Nội</h4>
+                    </div>
+                    <div class="buy" style="display: flex; flex-direction: row;">
+                        <p>Ngày sinh:</p>
+                        <h4>17/12/2002</h4>
+                    </div>
+                    <div class="gender" style="display: flex; flex-direction: row;">
+                        <p>Giới tính:</p>
+                        <h4>Nữ</h4>
+                    </div>
+                    <div class="phone" style="display: flex; flex-direction: row;">
+                        <p>Số điện thoại:</p>
+                        <h4>0846697610</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="statistic">
+                <ul class="header" >
+                    <li>Hệ số lương</li>
+                    <li>Tăng ca</li>
+                    <li>Lương cơ bản</li>
+                </ul>
+                <ul class="HHN" >
+                    <li style="margin-left:35px;">2</li>
+                    <li style="margin-right:20px; margin-left: 50px;">12</li>
+                    <li style="margin-right: 15px;">5.000.000</li>
+                </ul>
+            </div>
+            <div class="buttons">
+                <button class="out">Xuất phiếu lương</button>
+                <button class="save" onclick="updateCustomer('KH1')">Sửa thông tin</button>
+                <button class="del" onclick="deleteCustomer()">Xóa NV</button>
+            </div>
+
+        </div> 
+        
+
+        <div class="add-books-wrapper" >
+            <div class="add-books">
+                <h1>Thêm nhân viên mới</h1>
+                
+                <div class="id">
+                    <p>Mã nhân viên</p>
+                    <input type="text" name="" id="">
+                </div>
+                <div class="name">
+                    <p>Tên nhân viên</p>
+                    <input type="text">
+                </div>
+                <div class="buy">
+                    <p>Địa chỉ</p>
+                    <input type="text">
+                </div>
+                <div class="address">
+                    <p>Ngày sinh</p>
+                    <input type="text">
+                </div>
+                <div class="gender">
+                    <p>Giới tính</p>
+                    <select name="" id="">
+                        <option value="0">Chọn giới tính</option>
+                        <option value="1">Nam</option>
+                        <option value="2">Nữ</option>
+                        <option value="3">Không xác định</option>
+                    </select>
+                </div>
+                <div class="phone">
+                    <p>Số điện thoại</p>
+                    <input type="text">
+                </div>
+                <div class="buttons" style="margin: 50px 420px 0px 380px; display: flex; flex-direction: row; justify-content: space-around;width: 270px;">
+                    <button class="save-btn">Thêm</button>
+                    <button class="cancel-btn">Đóng</button>
+                </div>   
+            </div>
+        </div>
+
+        <script>
+            function onAddHandle(){
+                onOpenHandle();
+                document.querySelector(".add-books h1").innerHTML = "Thêm khách hàng";
+                document.querySelector(".add-books .update-btn").innerHTML = "Thêm";
+                document.querySelector(".add-books .update-btn").className = "save-btn";
+            }
+
+            function onCloseHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "hidden";
+            }
+
+            function onOpenHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "visible";
+            }
+            document.querySelector('.add-books-wrapper').addEventListener('click', e => {
+                if (e.target.classList.value === 'add-books-wrapper' || e.target.classList.value === 'cancel-btn') {
+                    onCloseHandle();
+                }
+                else {
+                    onOpenHandle();
+                }
+            });
+        </script>
+        
+</body>
+</html>

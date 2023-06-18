@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bills</title>
+    <link rel="stylesheet" href="./bill.css">
+    <script src="https://kit.fontawesome.com/cdf1deaf66.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script src="./book.js"></script>
+    <nav>
+        <div class="menu">
+            <div class="logo-container">
+                <img src="./imgs/Logo.png">
+            </div>
+            <a id="tk-url" href="./main.html">Thống kê</a>
+            <a href="/book.html">Quản lý sách</a>
+            <a id="bill-url" href="./bill.html">Hóa đơn</a>
+            <a href="./customer.html">Quản lý KH</a>
+            <a href="./staff.html">Quản lý NV</a>
+            <a href="./warehouse.html">Kho</a>
+            <a href="#link">CSKH</a>
+            <a href="#link">Hỗ trợ</a>
+            <a href="#link">Cài đặt</a>
+            
+                <i id="thongke" class="fa-solid fa-house"></i>
+                <i id="qlsach" class="fa-solid fa-cart-shopping"></i>
+                <i id="qlkh" class="fa-solid fa-users"></i>
+                <i id="kho" class="fa-solid fa-warehouse"></i>
+                <i id="qlnv" class="fa-solid fa-clipboard-user"></i>
+                <i id="bill" class="fa-solid fa-file-invoice-dollar"></i>
+                <i id="cskh" class="fa-solid fa-comments"></i>
+                <i id="sp" class="fa-regular fa-life-ring"></i>
+                <i id="settings" class="fa-solid fa-gear"></i>
+            
+            <style>
+            
+                #thongke{
+                    color: white;
+                    position: absolute;
+                    margin: 78px 132.94px 0 40.78px;
+                }
+                #qlsach{
+                    color: white;
+                    position: absolute;
+                    margin: 146px 132.94px 0 40.78px;
+                }
+                #bill{
+                    color: #267693;
+                    position: absolute;
+                    margin: 210px 132.94px 0 40.78px;
+                }
+                #qlkh{
+                    color: white;
+                    position: absolute;
+                    margin: 277px 132.94px 0 40.78px;
+                }
+                #qlnv{
+                    color: white;
+                    position: absolute;
+                    margin: 345px 132.94px 0 40.78px;
+                }
+                #kho{
+                    color: white;
+                    position: absolute;
+                    margin: 411px 132.94px 0 40.78px;
+                }
+                #cskh{
+                    color: white;
+                    position: absolute;
+                    margin: 477px 132.94px 0 40.78px;
+                }
+                #sp{
+                    color: white;
+                    position: absolute;
+                    margin: 546px 132.94px 0 40.78px;
+                }
+                #settings{
+                    color: white;
+                    position: absolute;
+                    margin: 612px 132.94px 0 40.78px;
+                }
+                #notice{
+                    position: absolute;
+                    margin: 15px 218px 12px 975px;
+                }
+                #avatar{
+                    position: absolute;
+                    margin:13.29px 24.25px 9.71px 1100px ;
+                }
+                .add-books-wrapper {
+                    position: absolute;
+                    margin-top: 0;
+                    top: 0px;
+                    left: 0px;
+                    width: 1535px;
+                    height: 760px;
+                    background: rgba(0,0,0,.3);
+                    z-index: 500;
+                    visibility: hidden;
+                }
+                .add-books {
+                    position: relative;
+                    margin-top: 0px;
+                    top: 145px;
+                    margin-left: 0px;
+                    left: 171px;
+                    z-index: 1000;
+                }
+            </style>
+            <div class="buttons">
+                <button class="minify-btn"><span>THU NHỎ</span></button>
+                <a id="link" href="./login.html">
+                    <span>THOÁT</span>
+                </a> 
+            </div>
+        </div> 
+        <div class="header">
+            <div class="search-zone">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <img id="notice" src="./imgs/Group 17.png" >
+            <img id="avatar" src="./imgs/Group 20.png" >
+            <div class="title">
+                <h1>Danh sách hóa đơn</h1>
+                <button style="
+                text-decoration: none;
+                width: 120px;
+                height: 35.12px;
+                border: none;
+                font-size: 15px; 
+                background-color: #267693; 
+                font-family: 'Montserrat', sans-serif; 
+                font-weight: 600;
+                border-radius: 3px;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                color: white;
+                margin:10px 0px 0 900px;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                align-items: center;
+                " onclick="onOpenHandle()">+ Thêm HĐ</button>
+            </div>
+        <div class="list-books">
+            <div class="list-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Tìm kiếm hóa đơn">
+                <button class="search-btn"><span>TÌM KIẾM</span></button>
+            </div>
+            <div class="lines">
+                <div class="line1"></div>
+            </div>
+            
+            <div class="list-header">
+                <ul>
+                    <li>Mã hóa đơn</li>
+                    <li>Mã sách</li>
+                    <li>Mã khách hàng</li>
+                    <li>Mã nhân viên</li>
+                    <li>Ngày xuất hóa đơn</li>
+                    <li>Tổng tiền</li>
+                </ul>
+            </div>
+            <div class="list-items">
+                <div class="book1">
+                    <ul>
+                        <li style="margin-left:50px" >HD1</li>
+                        <li style="margin-left:130px" >MS1</li>
+                        <li style="margin-left:150px">KH1</li>
+                        <li style="margin-left:170px">NV1</li>
+                        <li style="margin-left:150px">17/12/2022</li>
+                        <li style="margin-left:135px">100.000</li>
+                    </ul>
+                    <div class="buttons">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>    
+                </div>
+                <div class="book2">
+                    <ul>
+                        <li style="margin-left:50px" >HD2</li>
+                        <li style="margin-left:125px" >MS3</li>
+                        <li style="margin-left:150px">KH2</li>
+                        <li style="margin-left:165px">NV1</li>
+                        <li style="margin-left:150px">10/03/2022</li>
+                        <li style="margin-left:135px">70.000</li>
+                    </ul>
+                    <div class="buttons" style="margin: 220px 0px 0 1125px;">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:50px" >HD3</li>
+                        <li style="margin-left:125px" >MS2</li>
+                        <li style="margin-left:150px">KH3</li>
+                        <li style="margin-left:165px">NV5</li>
+                        <li style="margin-left:150px">14/02/2022</li>
+                        <li style="margin-left:130px">100.000</li>
+                    </ul>
+                    <div class="buttons" style="margin: 275px 0px 0 1125px;">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:50px" >HD4</li>
+                        <li style="margin-left:110px; width: 80px;" >MS1, MS2</li>
+                        <li style="margin-left:116px">KH4</li>
+                        <li style="margin-left:163px">NV5</li>
+                        <li style="margin-left:150px">16/04/2022</li>
+                        <li style="margin-left:130px">200.000</li>
+                    </ul>
+                    <div class="buttons" style="margin: 330px 0px 0 1125px;">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:50px" >HD5</li>
+                        <li style="margin-left:110px; width: 80px;" >MS2, MS3</li>
+                        <li style="margin-left:117px">KH5</li>
+                        <li style="margin-left:165px">NV3</li>
+                        <li style="margin-left:150px">18/07/2022</li>
+                        <li style="margin-left:135px">170.000</li>
+                    </ul>
+                    <div class="buttons" style="margin: 387px 0px 0 1125px;">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:50px" >HD6</li>
+                        <li style="margin-left:110px; width: 80px;" >MS1, MS3</li>
+                        <li style="margin-left:117px">KH3</li>
+                        <li style="margin-left:165px">NV5</li>
+                        <li style="margin-left:150px">30/06/2022</li>
+                        <li style="margin-left:130px">170.000</li>
+                    </ul>
+                    <div class="buttons" style="margin: 445px 0px 0 1125px;">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+                <div class="book3">
+                    <ul>
+                        <li style="margin-left:50px" >HD7</li>
+                        <li style="margin-left:125px" >MS2</li>
+                        <li style="margin-left:150px">KH6</li>
+                        <li style="margin-left:165px">NV4</li>
+                        <li style="margin-left:150px">01/08/2022</li>
+                        <li style="margin-left:130px">100.000</li>
+                    </ul>
+                    <div class="buttons" style="margin: 503px 0px 0 1125px;">
+                        <button class="info-btn">Chi tiết</button>
+                        <button class="delete-btn">Xóa</button>
+                    </div>   
+                </div>
+            </div>
+            <div class="list-footer">
+                <p style="font-family: 'Monsterrat';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 10px;
+                color: #808080;
+                width: 119px;
+                height: 10px;
+                padding-top: 60px;
+                margin: 0px 0px 0px 75px">Hiển thị kết quả</p>
+                <img src="./imgs/Group 54589.png" style="margin:60px 475px 24px 439px;">
+            </div>
+        </div>
+
+        <div class="add-books-wrapper" ">
+            <div class="add-books">
+                <h1>Thêm hóa đơn</h1>
+                <h2>Thông tin khách hàng</h2>
+                <select name="" id="">
+                    <option value="0">Chọn khách hàng</option>
+                    <option value="1">KH1</option>
+                    <option value="2">KH2</option>
+                    <option value="3">KH3</option>
+                    <option value="4">KH4</option>
+                    <option value="5">KH5</option>
+                </select>
+                <div class="list-header">
+                    <ul style="margin-left: 140px; margin-right:200px;margin-top: 90px;">
+                        <li>Mã sách</li>
+                        <li>Số lượng</li>
+                        <li>Giá</li>
+                    </ul>
+                </div>
+    
+                <div class="add-item">
+                    <div class="book1">
+                        <select name="" id="">
+                            <option value="0">Chọn sách</option>
+                            <option value="1">MS1</option>
+                            <option value="2">MS2</option>
+                            <option value="3">MS3</option>
+                        </select>
+                        <input type="text">
+                        <div class="buttons" style="margin-top:145px ;">
+                            <button class="delete-btn" style="margin:40px 0px 0 50px ;height: 30px;font-size: 15px;">Xóa</button>
+                        </div>    
+                    </div>
+                    <button style="
+                        text-decoration: none;
+                        width: 120px;
+                        height: 35.12px;
+                        border: none;
+                        font-size: 15px; 
+                        background-color: #267693; 
+                        font-family: 'Montserrat', sans-serif; 
+                        font-weight: 600;
+                        border-radius: 3px;
+                        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                        color: white;
+                        margin:100px 0px 0 60px;
+                        display: flex;
+                        justify-content: center;
+                        flex-direction: column;
+                        align-items: center;
+                        " onclick="onOpenHandle()">+ Thêm sách</button>
+                </div>
+                <div class="buttons" style="margin: 125px 420px 0px 520px; display: flex; flex-direction: row; justify-content: space-around;width: 270px;">
+                    <button class="save-btn">Lưu</button>
+                    <button class="cancel-btn">Hủy bỏ</button>
+                </div> 
+                <div class="sum">
+                    <div class="sum-list">
+                        <ul>
+                            <li>Tổng cộng:</li>
+                            <li>Giảm giá:</li>
+                            <li>Thành tiền:</li>
+                            <li>Số tiền trả:</li>
+                        </ul>
+                    </div>
+                    <div class="numbers">
+                        <ul>
+                            <li>0</li>
+                            <li>0%</li>
+                            <li>0</li>
+                            <li>0</li>
+                        </ul>
+                    </div>
+                </div>  
+            </div>
+        </div>
+        <script>
+            function onAddHandle(){
+                onOpenHandle();
+                document.querySelector(".add-books h1").innerHTML = "Thêm khách hàng";
+                document.querySelector(".add-books .update-btn").innerHTML = "Thêm";
+                document.querySelector(".add-books .update-btn").className = "save-btn";
+            }
+
+            function onCloseHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "hidden";
+            }
+
+            function onOpenHandle(){
+                document.getElementsByClassName("add-books-wrapper")[0].style.visibility = "visible";
+            }
+            document.querySelector('.add-books-wrapper').addEventListener('click', e => {
+                if (e.target.classList.value === 'add-books-wrapper' || e.target.classList.value === 'cancel-btn') {
+                    onCloseHandle();
+                }
+                else {
+                    onOpenHandle();
+                }
+            });
+        </script>
+</body>
+</html>
